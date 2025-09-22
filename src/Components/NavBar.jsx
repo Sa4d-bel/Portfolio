@@ -4,30 +4,41 @@ import { useContext, useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { MyContext } from "../Contexts/AllContexts";
+import { useEffect } from "react";
 
 export default function NavBar() {
-  const { setShowContactSection } = useContext(MyContext);
+  const { showContactSection,setShowContactSection } = useContext(MyContext);
   const [showLinks, setShowLinks] = useState(false);
   const [isActive, setIsActive] = useState("Home");
   const NavBarItems = ["Home", "About", "Skills", "Projects", "Contact"].map(
     (item, index) => {
       return (
-        <li
-          key={index}
-          onClick={() => {
-            setIsActive(item);
-            setShowLinks(false)
-            if(item === 'Contact'){
-               setShowContactSection((lastValue => !lastValue))
-            }
-          }}
-          className={isActive === item ? "Active" : ""}
-        >
-          <Link to="">{item}</Link>
-        </li>
+       <li
+  key={index}
+  onClick={() => {
+    setIsActive(item); 
+    setShowLinks(false);
+
+    if(item === 'Contact'){
+       setShowContactSection((lastValue) => !lastValue);
+    } else {
+       setShowContactSection(false);
+    }
+  }}
+  className={isActive === item ? "Active" : ""}
+>
+  <Link to="">{item}</Link>
+</li>
+
       );
     }
   );
+   useEffect(() => {
+    if (!showContactSection) {
+      setIsActive("Home");
+    }
+  }, [showContactSection]);
+
   return (
     <div className="container">
       <Link className="title">
