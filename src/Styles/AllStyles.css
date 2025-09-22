@@ -1,0 +1,445 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Parkinsas;
+}
+:root{
+    --PrimaryColor: #121212;
+    --SecondColor : #1b4332;
+}
+@font-face {
+    font-family: Parkinsas;
+    src: url('../../public/Fonts/Parkinsas/Parkinsans-VariableFont_wght.ttf');
+}
+
+.App {
+  text-align: center;
+  background: linear-gradient(135deg, #121212 0%, #121212 40%, #1b4332 100%);
+
+  width: 100%;
+  height: 100vh;
+}
+/*NavBar*/
+.container{
+    background-color: transparent;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 0 105px;
+    width: 100%;
+    color: white;
+    transition: 0.3s ease;
+}
+.title{
+    display: flex;
+    align-items: center;
+       letter-spacing: 4px;
+       text-decoration: none;
+       color: white;
+}
+.title h1{
+    display: flex;
+    align-items: center;
+}
+.tag-symbol{
+    color: white;
+    font-size: 45px;
+}
+.linksSection{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.container ul{
+    display: flex;
+    align-items: center;
+    width: 70%;
+    justify-content: space-between;
+    list-style: none;
+}
+ul li:first-child , span{
+    color: var(--SecondColor);
+}
+li{
+    cursor: pointer;
+    position: relative;
+}
+li::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;        
+  height: 2px;
+  background: var(--SecondColor);
+  transform: scaleX(0);        
+  transition: transform 0.3s ease;
+}
+li:hover::after {
+  transform: scaleX(1); 
+}
+.isActive::after{
+ content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;        
+  height: 2px;
+  background: var(--SecondColor);        
+  transition: transform 0.3s ease;
+  transform: scaleX(1)
+}
+.darkModeIcon{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    cursor: pointer;
+    scale: 1.2;
+    color: white;
+    padding: 2px;
+    transition: 0.4s;
+}
+.darkModeIcon:hover{
+    transform:rotateZ(30deg)
+}
+/*Main*/
+.Main-Section{
+    height: calc(100vh - 55px);
+    width: 70%;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.Main-Content{
+    text-align: left;
+    padding: 10px;
+    width: 45%;
+    color: white;
+}
+.Main-Content h3{
+    font-size: 22px;
+    font-weight: bold;
+}
+.typing {
+  font-family: monospace;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #1b4332; /* cursor */
+  display: inline-block;
+  animation: typing 5s steps(30, end) infinite, blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  0% { width: 0ch; }
+  50% { width: 36ch; } /* longueur texte */
+  100% { width: 0ch; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+.howIam{
+    font-size: 35px;
+    color: white;
+}
+.Main-Content h1{
+    font-size: 60px;
+    margin-bottom: -10px;
+}
+.Main-Content p{
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-top: 6px;
+   
+}
+.contact-icons {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 10px;   
+    padding: 10px 0;  
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+
+.contact-icons div {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid var(--SecondColor);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.contact-icons div a {
+    color: white;
+    font-size: 20px;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--SecondColor);
+    transition: 0.2s;
+}
+.contact-icons div:hover {
+    border: 2px solid var(--SecondColor);
+    background-color: var(--SecondColor);
+    box-shadow: 0 0 10px 3px var(--SecondColor);
+    transform: translateY(-3px);
+}
+
+.contact-icons div:hover a {
+    color: var(--PrimaryColor);
+}
+
+/*logo*/
+.logo .logoIcon{
+    filter: drop-shadow(0px 0px  20px var(--SecondColor) );
+    font-size: 500px;
+    color: var(--PrimaryColor);
+   animation: rotateInfinite 30s linear infinite, shadowMove 2s infinite alternate;
+}
+
+@keyframes rotateInfinite {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+@keyframes shadowMove {
+   0% {
+        filter: drop-shadow(0px 0px 5px #1b4332);
+    }
+    50% {
+        filter: drop-shadow(10px 10px 15px #1b4332);
+    }
+    100% {
+        filter: drop-shadow(0px 0px 5px #1b4332);
+    }
+}
+.menuIcon{
+    display: none;
+}
+.downloadCv{
+    margin-top: 15px;
+}
+.downloadCv button{
+    padding: 5px;
+    width: 140px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid var(--SecondColor);
+    background-color: var(--SecondColor);
+    color: white;
+    font-size: 15px;
+    box-shadow: 0 0 10px 2px var(--SecondColor);
+    cursor: pointer;
+    transition: 0.3s;
+}
+.downloadCv button:hover{
+    background-color: transparent;
+    color: var(--SecondColor);
+}
+
+/*responsive*/
+@media screen and (max-width : 1200px){
+     .menuIcon{
+        font-size: 22px;
+        cursor: pointer;
+        z-index: 10; /* f top dyal container */
+        display: block;
+        color: white !important;
+    }
+    .linksSection{
+        flex-direction: column;
+        display: flex; 
+        position: fixed;
+        right: -350px;
+        opacity: 0;
+        position: absolute; 
+        top: 55px; 
+        right: 0;
+        margin-top: 15px;
+        background-color: var(--PrimaryColor);
+        width: 150px;
+        z-index: 15555;
+        border-radius: 15px;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        transition: 0.4s;
+    }
+   .show{
+    opacity: 1;
+    right: 45px;
+}
+    .linksSection ul{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .linksSection ul li{
+        margin: 10px 0;
+    }
+    
+    .Main-Section{
+      width: 100%;
+      height: calc(100vh - 55px);
+      padding: 0 20px;
+
+      justify-content: center;
+      gap: 30px;
+    }
+    .logo .logoIcon{
+        font-size: 275px;
+    }
+    .Main-Content{
+        width: 90%;
+        padding: 0;
+    }
+    .Main-Content h1{
+        font-size: 35px;
+    }
+    .Main-Content h3{
+        font-size: 18px;
+    }
+    .Main-Content p{
+        font-size: 14px;
+    }
+    .container{
+        padding:0 105px;
+        padding-top: 15px;
+    }
+
+    .contact-icons{
+        width: 60%;
+        
+    }
+    
+    
+    .menuIcon{
+        font-size: 34px;
+        cursor: pointer;
+    }
+    .menuIcon:hover{
+        scale: 1.1;
+    }
+}
+@media screen and (max-width : 600px){
+     .menuIcon{
+        font-size: 22px;
+        cursor: pointer;
+        z-index: 10; /* f top dyal container */
+        display: block;
+        color: white !important;
+    }
+
+    .linksSection{
+        flex-direction: column;
+        display: flex; 
+        position: fixed;
+        right: -350px;
+        margin-top: 15px;
+        opacity: 0;
+        position: absolute; 
+        top: 55px; 
+        right: 0;
+        background-color: var(--PrimaryColor);
+        width: 150px;
+        z-index: 15555;
+        border-radius: 15px;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+        transition: 0.4s;
+    }
+   .show{
+    opacity: 1;
+    right: 25px;
+}
+    .linksSection ul{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .linksSection ul li{
+        margin: 10px 0;
+    }
+  
+    .Main-Section{
+      width: 100%;
+      height: calc(100vh -55px);
+      padding: 0 20px;
+      flex-direction: column-reverse;
+        justify-content: center;
+        gap: 30px;
+    }
+    .logo{
+        padding-top: 15px;
+        height: 40%;
+
+    }
+    .logo .logoIcon{
+        font-size: 275px;
+    }
+    .Main-Content{
+        width: 80%;
+        height: 60%;
+        padding: 0;
+    }
+    .Main-Content h1{
+        font-size: 35px;
+    }
+    .Main-Content h3{
+        font-size: 18px;
+    }
+    .Main-Content p{
+        font-size: 14px;
+    }
+    .container{
+        padding: 0 25px;
+    }
+
+    .contact-icons{
+        width: 50%;
+        margin-inline: auto;
+    }
+    
+    .menuIcon{
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .menuIcon:hover{
+        scale: 1.1;
+    }
+    .downloadCv{
+        display: flex;
+        justify-content: center;
+    }
+    .downloadCv button{
+        width: 60%;
+    }
+    .Main-Content p{
+        width: 100%;
+    }
+  
+    
+}
