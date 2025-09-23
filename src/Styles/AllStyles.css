@@ -126,7 +126,7 @@ li:hover::after {
 }
 .Main-Content{
     text-align: left;
-    padding: 10px;
+    padding: 3px;
     width: 45%;
     color: white;
 }
@@ -142,10 +142,15 @@ li:hover::after {
   display: inline-block;
   animation: typing 5s steps(30, end) infinite, blink 0.7s step-end infinite;
 }
+.Main-Content p {
+    font-size: 15px;
+    letter-spacing: 1px;
+    width: 100%; 
+}
 
 @keyframes typing {
   0% { width: 0ch; }
-  50% { width: 36ch; } /* longueur texte */
+  50% { width: 36ch; } 
   100% { width: 0ch; }
 }
 
@@ -161,12 +166,7 @@ li:hover::after {
     font-size: 60px;
     margin-bottom: -10px;
 }
-.Main-Content p{
-    font-size: 15px;
-    letter-spacing: 1px;
-    margin-top: 6px;
-   
-}
+
 .contact-icons {
     width: 45%;
     display: flex;
@@ -264,7 +264,7 @@ li:hover::after {
 /*ContactSection*/
 .ContactSection{
     width: 55%;
-    z-index: 900;
+    z-index: 999999999999;
     border-radius: 7px;
     background: var(--PrimaryColor);
     padding: 10px;
@@ -301,6 +301,7 @@ input , textarea{
     outline: none;
     border: none;
     margin-bottom: 8px;
+    background-color: white;
 }
 input{
     height: 40px;
@@ -356,7 +357,6 @@ form .fullName{
     opacity: 0;
     transition: 0.5s;
     color: #1b4332;
-   
 }
 label.show{
     opacity: 1;
@@ -419,10 +419,10 @@ label.show{
     }
     
     .Main-Section{
-      width: 100%;
+      width: 80%;
       height: calc(100vh - 55px);
       padding: 0 20px;
-
+      margin-inline: auto;
       justify-content: center;
       gap: 30px;
     }
@@ -531,6 +531,7 @@ label.show{
     }
     .Main-Content p{
         font-size: 14px;
+        margin-top: 10px;
     }
     .container{
         padding: 0 25px;
@@ -560,6 +561,8 @@ label.show{
     }
     .ContactSection , .ContactSection form{
      width: 90%;
+     z-index: 999999999999999;
+
     }
 
     
