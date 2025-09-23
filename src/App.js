@@ -5,6 +5,7 @@ import Main from "./Components/Main";
 import NavBar from "./Components/NavBar";
 import "./Styles/AllStyles.css";
 import { MyContext } from "./Contexts/AllContexts";
+import SkillsSection from "./Components/SkillsSection";
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <NavBar />
       <ContactSection />
       <Main />
+      <SkillsSection />
     </div>
     </ MyContext.Provider>
   );
