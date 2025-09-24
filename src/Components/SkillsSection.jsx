@@ -21,6 +21,7 @@ import bash from '../pictures/bash-original.svg'
 import assembly from '../pictures/assembly.svg'
 import materialUI from '../pictures/materialui-original.svg'
 import Card from './card' 
+import Footer from './Footer'
 
 
 
@@ -28,7 +29,7 @@ import Card from './card'
 
 
 export default function SkillsSection(){
-    return <section className='SkillsSection'>
+    return <section className='SkillsSection' id='xxxx'>
      <h1 className='skillsTitle'>Skills <span>&</span>Technologies</h1>
      <div className='skills'>
         <div>
@@ -38,8 +39,8 @@ export default function SkillsSection(){
                  <Card image={Cpp} title={"Cpp"}/>
                  <Card image={Javascript} title={"JavaScript"}/>
                  <Card image={python} title={"Python"}/>
-                 <Card image={assembly} title={"Assembly (basics)"}/>
-                 <Card image={bash} title={"Shell (basics)"}/>
+                 <Card image={assembly} title={"Assembly"}/>
+                 <Card image={bash} title={"Shell"}/>
              </div>
             
         </div>
@@ -80,5 +81,6 @@ export default function SkillsSection(){
         </div>
 
      </div>
+     <Footer />
     </section>
 }
