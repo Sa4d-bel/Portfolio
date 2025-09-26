@@ -7,6 +7,7 @@ import "./Styles/AllStyles.css";
 import { MyContext } from "./Contexts/AllContexts";
 import SkillsSection from "./Components/SkillsSection";
 import { Route , Routes } from "react-router-dom";
+import AboutMe from "./Components/AboutMe";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Main />}></Route>
       <Route path="/skills" element={<SkillsSection />}></Route>
+      <Route path="/about me" element={<AboutMe />}></Route>
     </Routes>
       </div>
     </ MyContext.Provider>

@@ -8,36 +8,58 @@ import { MyContext } from "../Contexts/AllContexts";
 import { useEffect } from "react";
 
 export default function NavBar() {
-  const { showContactSection, setShowContactSection, darkMode, setDarkMode } =
-    useContext(MyContext);
+  const { showContactSection, setShowContactSection, darkMode, setDarkMode } = useContext(MyContext);
   const [showLinks, setShowLinks] = useState(false);
   const [isActive, setIsActive] = useState("Home");
+  const [lastActive, setLastActive] = useState("Home"); 
   const NavBarItems = ["Home", "About", "Skills", "Projects", "Contact"].map(
-    (item, index) => {
-      return (
-        <li
-          key={index}
-          onClick={() => {
-            setIsActive(item);
-
-            if (item === "Contact") {
-              setShowContactSection((lastValue) => !lastValue);
-            } else {
+  (item, index) => {
+    return (
+      <li
+        key={index}
+        onClick={() => {
+          if (item === "Contact") {
+            if (showContactSection) {
               setShowContactSection(false);
+              setIsActive(lastActive);
+            } else {
+              setLastActive(isActive);
+              setShowContactSection(true);
+              setIsActive(item);
             }
-          }}
-          className={isActive === item ? "Active" : ""}
-        >
-          <Link to={item === "Skills" ? "/skills" : ""}>{item}</Link>
-        </li>
-      );
-    }
-  );
-  useEffect(() => {
-    if (!showContactSection) {
-      setIsActive("Home");
-    }
-  }, [showContactSection]);
+          } else {
+            setShowContactSection(false);
+            setIsActive(item);
+          }
+        }}
+        className={isActive === item ? "Active" : ""}
+      >
+        {item === "Contact" ? (
+          <span className={item}>{item}</span>
+        ) : (
+          <Link
+            to={
+              item === "Skills"
+                ? "/skills"
+                : item === "About"
+                ? "/about me"
+                : "/"
+            }
+          >
+            {item}
+          </Link>
+        )}
+      </li>
+    );
+  }
+);
+ useEffect(() => {
+  if (!showContactSection && isActive === "Contact") {
+    setIsActive(lastActive || "Home"); 
+  }
+}, [showContactSection, isActive, lastActive]);
+
+  
   const toggleDarkMode = () => {
     if (!darkMode) {
       document.documentElement.style.setProperty("--PrimaryColor", "#121212"); // dark bg
@@ -51,7 +73,7 @@ export default function NavBar() {
 
   return (
     <div className="container" style={{ background: "transparent" }}>
-      <Link className="title">
+      <Link className="title" to={'/'} onClick={() => setIsActive("Home")}>
         <h1>
           <span className="tag-symbol">{"<"}</span>
           <span className="highlight">S</span>aad
@@ -65,17 +87,22 @@ export default function NavBar() {
       >
         <CiMenuFries />
       </div>
-      
-        <div className={`linksSection ${showLinks ? "show" : ""}`}>
-      <div className="aux">
-         <ul>{NavBarItems}</ul>
-        <div style={{display : 'flex' , alignItems : 'center'}} >
-          <LightModeIcon className="darkModeIcon" onClick={() => toggleDarkMode()} />
+
+      <div className={`linksSection ${showLinks ? "show" : ""}`}>
+        <div className="aux">
+          <ul>{NavBarItems}</ul>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <LightModeIcon
+              className="darkModeIcon"
+              onClick={() => toggleDarkMode()}
+            />
+          </div>
+        </div>
+        <IoIosArrowDropupCircle
+          className="closeIcon"
+          onClick={() => setShowLinks(false)}
+        />
       </div>
-      </div>
-          <IoIosArrowDropupCircle className="closeIcon" onClick={() => setShowLinks(false)}/>
-          
-    </div>
     </div>
   );
 }

@@ -469,14 +469,78 @@ img{
 .contact-icons div:hover a {
   color: var(--PrimaryColor);
 }
-
 .downloadCv button {
   color: var(--PrimaryColor);
   background-color: var(--SecondColor);
+  margin-bottom: 4px;
 }
 
+.downloadMessage{
+    color: var(--SecondColor);
+    font-size: 12px;
+    padding-left: 7px;
+    opacity: 0;
+    transition: 0.4s;
+}
+.showDownladMessage{
+    opacity: 1;
+}
+/*AboutMe*/
+.AboutMe{
+    height: calc(100vh - 55px);
+    padding: 20px;
+    color: var(--SecondaryColor);
+}
+.AboutMe h1{
+    letter-spacing: 5px;
+}
+.aboutMeContent{
+    width: 65%;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-top: 20px;
+}
+.studentLogo{
+    width: 37%;
+    height: 100%;
+    padding: 40px;
+    border-radius: 100%;
+    background-color: rgba(128, 128, 128, 0.249);
+    box-shadow: 0 0 18px 4px var(--SecondColor);
+    animation: translate 2s infinite alternate-reverse , shadow 2s infinite alternate-reverse;
+}
+@keyframes translate {
+    from{
+        transform: translateY(-15px);
+    }
+    
+}
+@keyframes shadow {
+    from{
+        box-shadow: 0 0 70px 8px var(--SecondColor);
+    }
+    
+}
+.studentLogo img{
+    height: 100%;
+    width: 100%;
+}
 
-
+.studentContent{
+    width: 55%;
+    text-align: left;
+}
+.studentContent p{
+    letter-spacing: 2px;
+    font-size: 16px;
+    line-height: 35px;
+}
+.Contact{
+    color: white;
+}
 
 
 
@@ -485,6 +549,9 @@ img{
 
 /*responsive*/
 @media screen and (max-width : 1400px){
+    .aboutMeContent{
+        width: 98%;
+    }
      .menuIcon{
         font-size: 22px;
         cursor: pointer;
@@ -597,6 +664,15 @@ img{
         cursor: pointer;
         display: block;
         color: var(--SecondaryColor) ;
+    }
+    .aboutMeContent{
+        justify-content: center;
+    }
+    .studentLogo{
+        display: none;
+    }
+    .studentContent{
+        width: 70%;
     }
 
    .linksSection{

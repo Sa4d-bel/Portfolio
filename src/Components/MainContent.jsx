@@ -5,8 +5,10 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { useState } from "react";
 
 export default function MainContent() {
+  const [showDownloadMessage , setShowDownloadMessage] = useState(false)
   return (
     <div className="Main-Content">
       <h3>Hello,It's me</h3>
@@ -45,9 +47,13 @@ export default function MainContent() {
         </div>
       </div>
 
-      <div className="downloadCv">
+      <div className="downloadCv" onClick={() => {
+        setShowDownloadMessage(true)
+        setTimeout(() => setShowDownloadMessage(false) , 3000)
+      }}>
         <button>Download CV</button>
       </div>
+        <label className={`downloadMessage ${showDownloadMessage ? "showDownladMessage" : ""}`}> Soon inshallah...</label>
     </div>
   );
 }
