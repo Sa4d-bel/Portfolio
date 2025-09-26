@@ -491,7 +491,7 @@ img{
     padding: 20px;
     color: var(--SecondaryColor);
 }
-.AboutMe h1{
+.AboutMe h1 ,.ProjectsSection h1{
     letter-spacing: 5px;
 }
 .aboutMeContent{
@@ -539,8 +539,97 @@ img{
     line-height: 35px;
 }
 .Contact{
-    color: white;
+    color: var(--SecondaryColor);
 }
+
+/*Projects Section*/
+.project-container{
+    width: 50%;
+    height: calc(100vh - 55px);
+    margin-inline: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    color: var(--SecondaryColor);
+}
+.project{
+    width: 100%;
+    flex-grow: 1;
+    margin-top: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: 15px;
+
+}
+.project label{
+    font-size: 17px;
+    letter-spacing: 2px;
+}
+.main-image{
+    display: grid;
+    width: 100%;
+    margin-inline: auto;
+    padding: 5px;
+    margin-top: 10px;
+}
+.main-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    box-shadow: 0 0 10px 5px var(--SecondColor);
+}
+.project p{
+    font-size: 14px;
+    text-align: left;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    width: 80%;
+    margin-inline: auto;
+}
+.links{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 15px;
+}
+.links button{
+    width: 150px;
+    letter-spacing: 2px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--SecondaryColor);
+    background-color: var(--SecondColor);
+    border: 2px solid var(--SecondaryColor);
+    transition: 0.3s;
+}
+
+.links button:hover{
+    background-color: #1b4332b4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -551,6 +640,9 @@ img{
 @media screen and (max-width : 1400px){
     .aboutMeContent{
         width: 98%;
+    }
+    .project-container{
+        width: 90%;
     }
      .menuIcon{
         font-size: 22px;
@@ -665,6 +757,16 @@ img{
         display: block;
         color: var(--SecondaryColor) ;
     }
+    .links button{
+        font-size: 10px;
+        width: 100px;
+    }
+    .project p{
+        width: 90%;
+    }
+     .project-container{
+        width: 97%;
+    }
     .aboutMeContent{
         justify-content: center;
     }
@@ -672,7 +774,11 @@ img{
         display: none;
     }
     .studentContent{
-        width: 70%;
+        width: 90%;
+    }
+    .studentContent p{
+        line-height: 24px;
+        font-size: 11px;
     }
 
    .linksSection{

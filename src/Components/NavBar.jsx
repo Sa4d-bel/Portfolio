@@ -43,6 +43,8 @@ export default function NavBar() {
                 ? "/skills"
                 : item === "About"
                 ? "/about me"
+                : item === "Projects" 
+                ? "/projects" 
                 : "/"
             }
           >
