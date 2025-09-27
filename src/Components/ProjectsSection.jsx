@@ -25,7 +25,7 @@ export default function ProjectsSection() {
               storage, ensuring fast and seamless interaction.
             </p>
             <div className="links">
-              <Link to={"https://testsaadbel.netlify.app"} target="_blank">
+              <Link to={"https://myadvancedcrud.netlify.app/"} target="_blank">
                 <button>Live demo</button>
               </Link>
               <Link
