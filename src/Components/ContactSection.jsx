@@ -56,7 +56,8 @@ export default function ContactSection() {
         Contact <span>Me</span>
       </h1>
       <p className="contact-message">
-        I’ll be more than happy to hear from you. Feel free to reach out anytime!
+        I’ll be more than happy to hear from you. Feel free to reach out
+        anytime!
       </p>
       <form onSubmit={handleSubmit}>
         <input
@@ -102,10 +103,7 @@ export default function ContactSection() {
           <button type="submit" disabled={isSending}>
             {isSending ? "Sending..." : "Send Message"}
           </button>
-          <button
-            type="button"
-            onClick={() => setShowContactSection(false)}
-          >
+          <button type="button" onClick={() => setShowContactSection(false)}>
             Cancel
           </button>
         </div>

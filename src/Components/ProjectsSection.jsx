@@ -2,15 +2,29 @@ import { Link } from "react-router-dom";
 import "../Styles/AllStyles.css";
 import mainPage from "../pictures/main-page.png";
 import Footer from "./Footer";
+import { motion } from "framer-motion";
 
 export default function ProjectsSection() {
   return (
     <>
-      <section className="ProjectsSection">
+      <motion.section
+        className="ProjectsSection"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 1,
+        }}
+      >
         <div className="project-container">
-          <h1>
+          <motion.h1
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{
+              duration: 2,
+            }}
+          >
             My <span>Projects</span>
-          </h1>
+          </motion.h1>
           <div className="project">
             <label className="project-title">CRUD Dashboard</label>
 
@@ -37,7 +51,7 @@ export default function ProjectsSection() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
       <Footer />
     </>
   );

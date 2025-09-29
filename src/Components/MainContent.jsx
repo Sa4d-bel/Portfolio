@@ -7,12 +7,20 @@ import { FaWhatsapp } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { useState } from "react";
 
+import { motion } from "framer-motion";
+
 export default function MainContent() {
-  const [showDownloadMessage , setShowDownloadMessage] = useState(false)
+  const [showDownloadMessage, setShowDownloadMessage] = useState(false);
   return (
     <div className="Main-Content">
       <h3>Hello,It's me</h3>
-      <h1 className="MyName">Saad Belhous</h1>
+      <motion.h1
+        animate={{ fontSize: "60px" }}
+        transition={{ duration: 1 }}
+        className="MyName"
+      >
+        Saad Belhous
+      </motion.h1>
       <h3 className="typing">
         <span>Ai Student</span> <span className="howIam">&</span>{" "}
         <span>Front-end Developer</span>
@@ -47,13 +55,23 @@ export default function MainContent() {
         </div>
       </div>
 
-      <div className="downloadCv" onClick={() => {
-        setShowDownloadMessage(true)
-        setTimeout(() => setShowDownloadMessage(false) , 3000)
-      }}>
+      <div
+        className="downloadCv"
+        onClick={() => {
+          setShowDownloadMessage(true);
+          setTimeout(() => setShowDownloadMessage(false), 3000);
+        }}
+      >
         <button>Download CV</button>
       </div>
-        <label className={`downloadMessage ${showDownloadMessage ? "showDownladMessage" : ""}`}> Soon inshallah...</label>
+      <label
+        className={`downloadMessage ${
+          showDownloadMessage ? "showDownladMessage" : ""
+        }`}
+      >
+        {" "}
+        Soon inshallah...
+      </label>
     </div>
   );
 }

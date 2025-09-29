@@ -6,62 +6,63 @@ import { CiMenuFries } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { MyContext } from "../Contexts/AllContexts";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function NavBar() {
-  const { showContactSection, setShowContactSection, darkMode, setDarkMode } = useContext(MyContext);
+  const { showContactSection, setShowContactSection, darkMode, setDarkMode } =
+    useContext(MyContext);
   const [showLinks, setShowLinks] = useState(false);
   const [isActive, setIsActive] = useState("Home");
-  const [lastActive, setLastActive] = useState("Home"); 
+  const [lastActive, setLastActive] = useState("Home");
   const NavBarItems = ["Home", "About", "Skills", "Projects", "Contact"].map(
-  (item, index) => {
-    return (
-      <li
-        key={index}
-        onClick={() => {
-          if (item === "Contact") {
-            if (showContactSection) {
-              setShowContactSection(false);
-              setIsActive(lastActive);
+    (item, index) => {
+      return (
+        <li
+          key={index}
+          onClick={() => {
+            if (item === "Contact") {
+              if (showContactSection) {
+                setShowContactSection(false);
+                setIsActive(lastActive);
+              } else {
+                setLastActive(isActive);
+                setShowContactSection(true);
+                setIsActive(item);
+              }
             } else {
-              setLastActive(isActive);
-              setShowContactSection(true);
+              setShowContactSection(false);
               setIsActive(item);
             }
-          } else {
-            setShowContactSection(false);
-            setIsActive(item);
-          }
-        }}
-        className={isActive === item ? "Active" : ""}
-      >
-        {item === "Contact" ? (
-          <span className={item}>{item}</span>
-        ) : (
-          <Link
-            to={
-              item === "Skills"
-                ? "/skills"
-                : item === "About"
-                ? "/about me"
-                : item === "Projects" 
-                ? "/projects" 
-                : "/"
-            }
-          >
-            {item}
-          </Link>
-        )}
-      </li>
-    );
-  }
-);
- useEffect(() => {
-  if (!showContactSection && isActive === "Contact") {
-    setIsActive(lastActive || "Home"); 
-  }
-}, [showContactSection, isActive, lastActive]);
+          }}
+          className={isActive === item ? "Active" : ""}
+        >
+          {item === "Contact" ? (
+            <span className={item}>{item}</span>
+          ) : (
+            <Link
+              to={
+                item === "Skills"
+                  ? "/skills"
+                  : item === "About"
+                  ? "/about me"
+                  : item === "Projects"
+                  ? "/projects"
+                  : "/"
+              }
+            >
+              {item}
+            </Link>
+          )}
+        </li>
+      );
+    }
+  );
+  useEffect(() => {
+    if (!showContactSection && isActive === "Contact") {
+      setIsActive(lastActive || "Home");
+    }
+  }, [showContactSection, isActive, lastActive]);
 
-  
   const toggleDarkMode = () => {
     if (!darkMode) {
       document.documentElement.style.setProperty("--PrimaryColor", "#121212"); // dark bg
@@ -74,8 +75,16 @@ export default function NavBar() {
   };
 
   return (
-    <div className="container" style={{ background: "transparent" }}>
-      <Link className="title" to={'/'} onClick={() => setIsActive("Home")}>
+    <motion.div
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{
+        duration: 1,
+      }}
+      className="container"
+      style={{ background: "transparent" }}
+    >
+      <Link className="title" to={"/"} onClick={() => setIsActive("Home")}>
         <h1>
           <span className="tag-symbol">{"<"}</span>
           <span className="highlight">S</span>aad
@@ -105,6 +114,6 @@ export default function NavBar() {
           onClick={() => setShowLinks(false)}
         />
       </div>
-    </div>
+    </motion.div>
   );
 }
