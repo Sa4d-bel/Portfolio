@@ -15,8 +15,11 @@ export default function MainContent() {
     <div className="Main-Content">
       <h3>Hello,It's me</h3>
       <motion.h1
-        animate={{ fontSize: "60px" }}
-        transition={{ duration: 1 }}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 2,
+        }}
         className="MyName"
       >
         Saad Belhous

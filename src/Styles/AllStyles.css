@@ -178,6 +178,7 @@ li:hover::after {
     color: var(--SecondaryColor);
 }
 .Main-Content h1{
+    font-size: 60px;
     margin-bottom: -10px;
 }
 
@@ -808,7 +809,9 @@ img{
         height: 60%;
         padding: 0;
     }
-
+    .Main-Content h1{
+        font-size: 35px;
+    }
     .Main-Content h3{
         font-size: 18px;
     }
